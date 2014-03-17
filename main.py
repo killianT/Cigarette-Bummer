@@ -38,7 +38,6 @@ rent = 800
 #text render
 font = pygame.font.SysFont("None", 20) #set font 
 
-
 #start game
 startscreen = True
 while(startscreen):
@@ -46,52 +45,52 @@ while(startscreen):
     currenttime = time.time() * 1000
     if upgrade1 > 0:
         if currenttime - lasttime >= 60000:
-	    cigarettes += 5 * upgrade1 
-	    lasttime += 60000
+	    	cigarettes += 5 * upgrade1 
+	    	lasttime += 60000
     if upgrade2 > 0:
-	if currenttime - lasttime2 >= 30000 and cigarettes > 20:
-	    cigarettes -= 20 * upgrade2
-	    lasttime2 -= 30000
-	    money += 5 * upgrade2
+		if currenttime - lasttime2 >= 30000 and cigarettes > 20:
+			cigarettes -= 20 * upgrade2
+	    	lasttime2 += 30000
+	    	money += 5 * upgrade2
     #time for day and rent
     if currenttime - lastdaytime >= 60000:
-	day += 1
-	lastdaytime += 60000
-	if day == 31: 
-	    if money >= rent: 
-	        money -= rent
-		day -= 30
-	    else: 
-		print "Game Over!"
-		quit()
+        day += 1
+        lastdaytime += 60000
+        if day == 31: 
+            if money >= rent: 
+                money -= rent
+                day -= 30
+            else: 
+                print "Game Over!"
+                quit()
     #input & logic 
     for event in pygame.event.get():
         if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
-	    pos = pygame.mouse.get_pos()
-	    if bumSurf.collidepoint(pos):
-	        cigarettes += 1
+            pos = pygame.mouse.get_pos()
+            if bumSurf.collidepoint(pos):
+                cigarettes += 1
             if sellSurf.collidepoint(pos):
-		if cigarettes >= 20:
-		    cigarettes -= 20
-		    money += 5
-		elif cigarettes < 20:
-		    print "You do not have enough cigarettes to sell!"
+                if cigarettes >= 20:
+                    cigarettes -= 20
+                    money += 5
+                elif cigarettes < 20:
+                    print "You do not have enough cigarettes to sell!"
             if buysurf1.collidepoint(pos):
-		 if money >= 80:
-                     upgrade1 += 1
-                     money -= 80
-		     lasttime = currenttime
+                if money >= 80:
+                    upgrade1 += 1
+                    money -= 80
+                    lasttime = currenttime
             if sellsurf1.collidepoint(pos):
-		 if upgrade1 > 0: 
-                     upgrade1 -= 1
-	    if buysurf2.collidepoint(pos):
-	   	 if money >= 80:
-		     upgrade2 += 1
-		     money -= 80
-		     lasttime2 = currenttime
-	    if sellsurf2.collidepoint(pos):
-		 if upgrade2 > 0: 
-		     upgrade2 -= 1
+                if upgrade1 > 0: 
+                    upgrade1 -= 1
+            if buysurf2.collidepoint(pos):
+                if money >= 80:
+                    upgrade2 += 1
+                    money -= 80
+                    lasttime2 = currenttime
+            if sellsurf2.collidepoint(pos):
+                if upgrade2 > 0: 
+                    upgrade2 -= 1
 
 
     #Almost everything is rendered here unless it is rendered on a certain condition
