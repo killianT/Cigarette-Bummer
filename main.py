@@ -52,6 +52,7 @@ while(startscreen):
 			cigarettes -= 20 * upgrade2
 	    	lasttime2 += 30000
 	    	money += 5 * upgrade2
+
     #time for day and rent
     if currenttime - lastdaytime >= 60000:
         day += 1
@@ -63,6 +64,7 @@ while(startscreen):
             else: 
                 print "Game Over!"
                 quit()
+
     #input & logic 
     for event in pygame.event.get():
         if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
@@ -73,8 +75,6 @@ while(startscreen):
                 if cigarettes >= 20:
                     cigarettes -= 20
                     money += 5
-                elif cigarettes < 20:
-                    print "You do not have enough cigarettes to sell!"
             if buysurf1.collidepoint(pos):
                 if money >= 80:
                     upgrade1 += 1
@@ -91,7 +91,6 @@ while(startscreen):
             if sellsurf2.collidepoint(pos):
                 if upgrade2 > 0: 
                     upgrade2 -= 1
-
 
     #Almost everything is rendered here unless it is rendered on a certain condition
     window.blit(background, (0,0))
