@@ -1,4 +1,17 @@
 Cigarette Bummer is a small game written in python using pygame.
 
-Binary for Cigarette Bummer version 0.0.1: 
-https://www.dropbox.com/s/mj4yqa6jl2shxnu/CB.pyc
+Binary for Cigarette Bummer version 0.0.2
+Change Log:
+-added upgrades 3, 4 and 5.
+-added locations
+-added days for each month
+-added prices
+-added unlockable upgrades
+-added one time purchase upgrades
+-added month, location, and day info.
+-fixed bugs
+
+Things need to add:
+-Save Function
+-Upgrades tab for multiple upgrade screens
+-more upgrades
